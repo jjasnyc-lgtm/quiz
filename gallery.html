@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Site - Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Gallery specific styles */
+        .gallery-section {
+            padding: 40px 0;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #222;
+        }
+        
+        .chart-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .chart-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .chart-caption {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .chart-caption p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .chart-caption p:first-child {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 600px) {
+            .chart-container {
+                padding: 15px;
+            }
+            
+            .chart-caption {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">My Portfolio</div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <section class="gallery-section">
+            <h1 class="gallery-title">Data Visualization Gallery</h1>
+            
+            <div class="chart-container">
+                <img src="study_vs_exam.png" alt="Scatter plot showing relationship between study hours and exam scores with trendline" class="chart-image">
+                
+                <div class="chart-caption">
+                    <p>📊 Chart Description:</p>
+                    <p>This scatter plot shows the strong positive correlation between study hours and exam scores, with a trendline slope of 4.33 indicating that each additional hour of study is associated with approximately 4.33 more points on the exam.</p>
+                    <p style="margin-top: 10px;"><strong>Decision based on chart:</strong> Based on this visualization, I would recommend students focus on increasing study hours to at least 7-8 hours for scores above 80, as the data shows consistent improvement with more study time.</p>
+                </div>
+                
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
