@@ -1,10 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Site - Gallery</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Gallery specific styles */
+        .gallery-section {
+            padding: 3rem 0;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .plot-container {
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .plot-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+        
+        .plot-container h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #4361ee;
+        }
+        
+        .image-container {
+            text-align: center;
+            background: #f8faff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .plot-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .caption-box {
+            padding: 1.5rem;
+            background: #f0f4ff;
+            border-radius: 8px;
+            border-left: 4px solid #4361ee;
+            margin: 1.5rem 0;
+        }
+        
+        .caption-box p {
+            margin: 0.8rem 0;
+            color: #2d3436;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .dot-red { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            background: #ff6b6b; 
+            display: inline-block;
+        }
+        .dot-blue { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            background: #4dabf7; 
+            display: inline-block;
+        }
+        .dot-green { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            background: #51cf66; 
+            display: inline-block;
+        }
+        
+        .findings-box {
+            background: #f8faff;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .findings-box h2 {
+            color: #4361ee;
+            margin-bottom: 1.5rem;
+        }
+        
+        .findings-box p {
+            margin: 1rem 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 600px) {
+            .plot-container {
+                padding: 1.5rem;
+            }
+            
+            .legend {
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -12,67 +164,78 @@
         <nav class="nav">
             <a href="index.html">Home</a>
             <a href="gallery.html" class="active">Gallery</a>
-            <a href="#">Contact</a>
         </nav>
     </header>
     
     <main class="container">
         <section class="gallery-section">
             <h1 class="gallery-title">Data Visualization Gallery</h1>
+            <p class="gallery-subtitle">Two plots from Python Colab analysis showing student performance</p>
             
-            <div class="gallery-grid">
-                <!-- Study Hours vs Exam Score Chart -->
-                <div class="chart-container">
-                    <img src="images/download(1).png" alt="Scatter plot showing relationship between study hours and exam scores with trendline" class="chart-image">
-                    
-                    <div class="chart-caption">
-                        <h3>📚 Study Hours vs Exam Score</h3>
-                        <p><strong>What it shows:</strong> This scatter plot displays the relationship between hours spent studying and the resulting exam scores for 12 students.</p>
-                        
-                        <div class="analysis">
-                            <p><span class="highlight">Analysis:</span> There is a strong positive correlation between study hours and exam scores. As study hours increase from 2 to 10 hours, exam scores consistently rise from 55 to 90. The trendline shows a slope of approximately 4.33, meaning each additional hour of study is associated with a 4.33-point increase in exam scores.</p>
-                            
-                            <p><span class="highlight">Key Insight:</span> Students who studied 8+ hours all scored above 83, while those studying 4 or fewer hours scored 72 or below, highlighting the critical importance of study time.</p>
-                        </div>
+            <!-- PLOT 1: Study Hours -->
+            <div id="study" class="plot-container">
+                <h2>📈 Plot 1: Study Hours vs Exam Score</h2>
+                <div class="image-container">
+                    <img src="images/study_vs_score.png" alt="Study hours vs exam score plot" class="plot-image">
+                </div>
+                <div class="caption-box">
+                    <p><strong>What this shows:</strong> Strong positive correlation between study hours and exam scores. The trendline slope is <strong style="color: #4361ee;">3.53</strong>, meaning each additional study hour adds about 3.5 points.</p>
+                    <p><strong>Range:</strong> 2 hours → 55 score, 10 hours → 90 score</p>
+                </div>
+            </div>
+            
+            <!-- PLOT 2: Sleep Hours -->
+            <div id="sleep" class="plot-container">
+                <h2>😴 Plot 2: Sleep Hours vs Exam Score</h2>
+                <div class="image-container">
+                    <img src="images/sleep_vs_score.png" alt="Sleep hours vs exam score plot" class="plot-image">
+                </div>
+                
+                <!-- Color Legend -->
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="dot-red"></span>
+                        <span>Low Study (0-4 hrs)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot-blue"></span>
+                        <span>Medium Study (5-7 hrs)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot-green"></span>
+                        <span>High Study (8+ hrs)</span>
                     </div>
                 </div>
                 
-                <!-- Sleep Hours vs Exam Score Chart -->
-                <div class="chart-container">
-                    <img src="images/download.png" alt="Scatter plot showing relationship between sleep hours and exam scores, colored by study hours buckets" class="chart-image">
-                    
-                    <div class="chart-caption">
-                        <h3>😴 Sleep Hours vs Exam Score</h3>
-                        <p><strong>What it shows:</strong> This scatter plot displays the relationship between sleep hours and exam scores, with points colored by study hours buckets (Low: 0-4, Medium: 5-7, High: 8+).</p>
-                        
-                        <div class="analysis">
-                            <p><span class="highlight">Analysis:</span> Unlike study hours, sleep hours show no clear correlation with exam scores. Students with high scores (80-90) appear across all sleep ranges from 3-8 hours. The color coding reveals that study hours, not sleep hours, determine the score.</p>
-                            
-                            <p><span class="highlight">Key Insight:</span> Student I (9 study hours, 3 sleep) scored 88, while student L (7 study hours, 8 sleep) scored 80 - demonstrating that study intensity outweighs sleep duration in determining exam performance.</p>
-                        </div>
-                    </div>
+                <div class="caption-box">
+                    <p><strong>What this shows:</strong> Sleep hours alone doesn't predict scores well. Color shows study time:</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li><span style="color: #ff6b6b;">Red (Low study)</span> → Scores below 70</li>
+                        <li><span style="color: #4dabf7;">Blue (Medium study)</span> → Scores 68-78</li>
+                        <li><span style="color: #51cf66;">Green (High study)</span> → Scores 83-90</li>
+                    </ul>
+                    <p><strong>Outlier:</strong> Student F (10 study hrs, 6 sleep hrs, 90 score) stands out.</p>
                 </div>
             </div>
             
-            <!-- Combined Analysis Summary -->
-            <div class="summary-section">
-                <h3>📊 Comparative Analysis Summary</h3>
-                <ul>
-                    <li><strong>Most Predictive Factor:</strong> Study hours strongly predict exam scores, while sleep hours show almost no predictive power.</li>
-                    <li><strong>Optimal Strategy:</strong> Students should prioritize 7-10 hours of study for scores above 80.</li>
-                    <li><strong>Outlier Identified:</strong> Student L studied 7 hours but scored only 80, slightly below expectations.</li>
-                    <li><strong>Practical Recommendation:</strong> Focus on quality study time rather than sacrificing sleep.</li>
-                </ul>
+            <!-- Key Findings -->
+            <div class="findings-box">
+                <h2>🔍 Key Findings</h2>
+                <p><strong>📊 More predictive variable:</strong> Study hours (slope 3.53) is more predictive than sleep hours</p>
+                <p><strong>⭐ Outlier identified:</strong> Student F - studied 10h, slept 6h, scored 90 (highest score)</p>
+                <p><strong>✅ Data-driven decision:</strong> Create study programs for students with less than 5 study hours</p>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="index.html" class="btn">← Back to Home</a>
+            <!-- Back to Home Button -->
+            <div style="text-align: center;">
+                <a href="index.html" class="back-link">← Back to Home</a>
             </div>
         </section>
     </main>
     
     <footer class="footer">
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+        <p>© 2026 My Portfolio. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Made with Python + Colab + CSS</p>
     </footer>
 </body>
 </html>
