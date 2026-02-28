@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -12,46 +12,86 @@
         <nav class="nav">
             <a href="index.html" class="active">Home</a>
             <a href="gallery.html">Gallery</a>
-            <a href="#">Contact</a>
         </nav>
     </header>
     
     <main class="container">
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-text">
                 <h1>Data and Design</h1>
-                <p>Clean layout, responsive grid, no frameworks. Explore my data visualization gallery showcasing the relationship between study habits and exam performance.</p>
-                <a class="btn" href="gallery.html">See Gallery</a>
+                <p>Clean layout, responsive grid, no frameworks. Python data visualization with Colab.</p>
+                <a class="btn" href="gallery.html">View Gallery</a>
             </div>
             <div class="hero-card">
                 <p>KPI</p>
                 <h2>72%</h2>
-                <p style="font-size: 0.9rem; color: #666;">Average Exam Score</p>
             </div>
         </section>
         
+        <!-- Cards Grid Section -->
         <section class="grid">
             <div class="card">
-                <h3>Study Hours Analysis</h3>
-                <p>View the correlation between study time and exam scores</p>
+                <h3>📊 Data Analysis</h3>
+                <p>Study hours vs exam scores correlation. Slope: 3.53</p>
+                <a href="gallery.html#study" class="card-link">View Plot →</a>
             </div>
             <div class="card">
-                <h3>Sleep Patterns</h3>
-                <p>Analyze how sleep affects academic performance</p>
+                <h3>🎨 Visual Design</h3>
+                <p>Sleep hours analysis with color coding by study time</p>
+                <a href="gallery.html#sleep" class="card-link">View Plot →</a>
             </div>
             <div class="card">
-                <h3>Student Performance</h3>
-                <p>Compare individual student data and outliers</p>
+                <h3>💻 Web Development</h3>
+                <p>Responsive design with CSS grid and flexbox</p>
+                <a href="gallery.html" class="card-link">See Gallery →</a>
             </div>
             <div class="card">
-                <h3>Trend Analysis</h3>
-                <p>Identify patterns and make data-driven decisions</p>
+                <h3>🤖 AI Integration</h3>
+                <p>Python data visualization in Google Colab</p>
+                <a href="https://colab.research.google.com" target="_blank" class="card-link">Open Colab →</a>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title">📬 Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions about the data or want to collaborate? Reach out!</p>
+                    <div class="contact-details">
+                        <p><strong>📧 Email:</strong> student@quiz.com</p>
+                        <p><strong>📱 Phone:</strong> +1 (555) 123-4567</p>
+                        <p><strong>📍 Location:</strong> Data Science Dept</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="Your message"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn submit-btn">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
     
     <footer class="footer">
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+        <p>© 2026 My Portfolio. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with Python + Colab + CSS</p>
     </footer>
 </body>
 </html>
